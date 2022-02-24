@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "tsdx-library-demo",
+  "name": "@lwazevedo/tsdx-library-demo",
   "author": "luiz azevedo",
   "module": "dist/tsdx-library-demo.esm.js",
   "size-limit": [
