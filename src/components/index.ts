@@ -1,1 +1,4 @@
-export { KeycloakContainer } from './KeycloakContainer/KeycloakContainer';
+export {
+  KeycloakContainer,
+  KeycloakContainerProps,
+} from './KeycloakContainer/KeycloakContainer';

@@ -1,11 +1,11 @@
-// import React from 'react';
-// import * as ReactDOM from 'react-dom';
-// import { Default as Thing } from '../stories/Thing.stories';
+import React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Default as KeycloakContainer } from '../stories/KeycloakContainer.stories';
 
-// describe('Thing', () => {
-//   it('renders without crashing', () => {
-//     const div = document.createElement('div');
-//     ReactDOM.render(<Thing />, div);
-//     ReactDOM.unmountComponentAtNode(div);
-//   });
-// });
+describe('KeycloakContainer', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<KeycloakContainer />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+});
