@@ -5,7 +5,7 @@ import { Default as KeycloakContainer } from '../stories/KeycloakContainer.stori
 describe('KeycloakContainer', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<KeycloakContainer />, div);
+    ReactDOM.render(<KeycloakContainer children={<p>Mock</p>} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });
