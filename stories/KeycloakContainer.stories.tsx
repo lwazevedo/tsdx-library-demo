@@ -5,26 +5,42 @@ import { KeycloakContainer, KeycloakContainerProps } from '../src/components';
 const meta: Meta = {
   title: 'Keycloak Container',
   component: KeycloakContainer,
-  args: {
-    clientId: '1233',
-    initOptions: {},
-  },
-  argTypes: {
-    children: <p>Teste</p>,
-  },
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;
 
-const Template: Story<KeycloakContainerProps> = (args) => {
-  return <KeycloakContainer {...args}>Mock children</KeycloakContainer>;
-};
+const Template: Story<KeycloakContainerProps> = (args) => (
+  <KeycloakContainer {...args} />
+);
 
-// By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default = Template.bind({});
 
-Default.args = {};
+const defaultParams: KeycloakContainerProps = {
+  children: 'Your application component',
+  initOptions: {},
+  configInit: {
+    clientId: '1234',
+    oidcProvider: {
+      authorization_endpoint: 'Your authorization_endpoint',
+      end_session_endpoint: 'Your end_session_endpoint',
+      token_endpoint: 'Your token_endpoint',
+    },
+  },
+};
+Default.args = defaultParams;
+
+export const ErrorRealmOrOidc = Template.bind({});
+const errorRealOrOidcParams: KeycloakContainerProps = {
+  children: 'Your application component',
+  initOptions: {},
+  configInit: { clientId: '1234' },
+};
+ErrorRealmOrOidc.args = errorRealOrOidcParams;
+
+export const ErrorClientId = Template.bind({});
+const errorClientIdParams: KeycloakContainerProps = {
+  children: 'Your application component',
+  initOptions: {},
+  configInit: {},
+};
+ErrorClientId.args = errorClientIdParams;

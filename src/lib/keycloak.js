@@ -1009,7 +1009,7 @@ function Keycloak(config) {
             var config = JSON.parse(req.responseText);
 
             kc.authServerUrl = config['auth-server-url'];
-            kc.realm = config['realm'];
+            kc.realm = config['realm'] ? config['realm'] : undefined;
             kc.clientId = config['resource'];
             kc.clientSecret = (config['credentials'] || {})['secret'];
             setupOidcEndoints(null);
@@ -1043,12 +1043,12 @@ function Keycloak(config) {
             }
           }
         }
-        if (!config.realm) {
-          throw 'realm missing';
+        if (!config.realm && !config.credentials && !config.oidcProvider) {
+          throw 'realm missing or oidc provider missing';
         }
 
         kc.authServerUrl = config.url;
-        kc.realm = config.realm;
+        kc.realm = config.realm ? config.realm : undefined;
         setupOidcEndoints(null);
         promise.setSuccess();
       } else {

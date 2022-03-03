@@ -1,9 +1,7 @@
-import React, { FC, ReactChild, useState, useEffect } from 'react';
-import Keycloak, {
-  KeycloakInitOptions,
-  KeycloakConfig,
-} from '../../lib/keycloak';
+import React, { FC, ReactChild } from 'react';
+import { KeycloakInitOptions, KeycloakConfig } from '../../lib/keycloak';
 import { KeycloakProvider } from '../../context/keycloak-context';
+import { useKeycloakInit } from '../../hooks/useKeycloakInit';
 
 export interface KeycloakContainerProps {
   children: ReactChild;
@@ -16,22 +14,7 @@ export const KeycloakContainer: FC<KeycloakContainerProps> = ({
   initOptions = {},
   configInit = {},
 }) => {
-  const [state, setState] = useState<Keycloak | undefined>(undefined);
-
-  const initial = async () => {
-    const instance = new Keycloak(configInit);
-    try {
-      const auth = await instance.init(initOptions);
-      if (auth) setState(instance);
-      else instance.login();
-    } catch (error) {
-      console.log('Error: ', error);
-    }
-  };
-
-  useEffect(() => {
-    initial();
-  }, []);
-
+  const { state, error } = useKeycloakInit(initOptions, configInit);
+  if (error) return <p data-testid="errorRender">{error}</p>;
   return <KeycloakProvider instance={state}>{children}</KeycloakProvider>;
 };

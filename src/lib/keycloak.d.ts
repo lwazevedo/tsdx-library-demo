@@ -453,7 +453,7 @@ declare class Keycloak {
   /**
    * @private Undocumented.
    */
-  clientId?: string;
+  clientId: string;
 
   /**
    * @private Undocumented.
