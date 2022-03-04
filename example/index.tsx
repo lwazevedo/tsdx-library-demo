@@ -6,7 +6,11 @@ import { KeycloakContainer } from '../src';
 const App = () => {
   return (
     <div>
-      <KeycloakContainer children={<p>Exemple</p>} initOptions={{}} />
+      <KeycloakContainer
+        children={<p>Exemple</p>}
+        initOptions={{}}
+        configInit={{}}
+      />
     </div>
   );
 };

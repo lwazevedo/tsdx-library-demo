@@ -1,4 +1,4 @@
 export {
   KeycloakContainer,
   KeycloakContainerProps,
-} from './KeycloakContainer/KeycloakContainer';
+} from './KeycloakContainer/keycloak-container';

@@ -15,6 +15,7 @@ export const useKeycloakInit = (
       if (auth) setState(instance);
       else instance.login();
     } catch (error) {
+      console.log('hook', error);
       const message: string = (error as string) ?? 'An error occurred';
       setError(message);
     }
