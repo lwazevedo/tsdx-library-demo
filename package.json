@@ -28,11 +28,6 @@
     "js-sha256": "^0.9.0",
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint && git-cz"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
