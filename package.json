@@ -30,8 +30,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint",
-      "commit": "git-cz"
+      "pre-commit": "tsdx lint && git-cz"
     }
   },
   "prettier": {
