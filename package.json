@@ -99,6 +99,7 @@
     }
   },
   "dependencies": {
-    "esbuild": "^0.14.23"
+    "esbuild": "^0.14.23",
+    "eslint-config-tsdx": "^0.2.0"
   }
 }
