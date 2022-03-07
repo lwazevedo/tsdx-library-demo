@@ -9,11 +9,10 @@ interface ICreateContainerKeycloakProps {
   configInit?: KeycloakConfig;
 }
 
-export const CreateContainerKeycloak: React.FunctionComponent<ICreateContainerKeycloakProps> =
-  (props) => {
-    return (
-      <KeycloakContainer {...props} useKeycloakInit={useKeycloakInit}>
-        {props.children}
-      </KeycloakContainer>
-    );
-  };
+export const CreateContainerKeycloak: React.FunctionComponent<ICreateContainerKeycloakProps> = props => {
+  return (
+    <KeycloakContainer {...props} useKeycloakInit={useKeycloakInit}>
+      {props.children}
+    </KeycloakContainer>
+  );
+};

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Keycloak, { KeycloakInitOptions, KeycloakConfig } from '../lib/keycloak';
 
 export const useKeycloakInit = (
@@ -8,7 +8,7 @@ export const useKeycloakInit = (
   const [state, setState] = useState<Keycloak | undefined>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
 
-  const initial = async () => {
+  const initial = useCallback(async () => {
     const instance = new Keycloak(configInit);
     try {
       const auth = await instance.init(initOptions);
@@ -19,11 +19,11 @@ export const useKeycloakInit = (
       const message: string = (error as string) ?? 'An error occurred';
       setError(message);
     }
-  };
+  }, [configInit, initOptions]);
 
   useEffect(() => {
     initial();
-  }, []);
+  }, [initial]);
 
   return { state, error };
 };

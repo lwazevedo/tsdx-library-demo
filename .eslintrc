@@ -1,0 +1,12 @@
+{
+  "extends": ["tsdx"],
+  "ignorePatterns": ["*-lock.json", "*.lock" , "package.json", "tsconfig.json"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-redeclare": "off"
+  }
+}
